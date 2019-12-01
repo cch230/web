@@ -31,24 +31,34 @@
 
 		tag = tag.equals("see") ? "볼거리" : "먹거리";
 		photo pop = new photo(title,tag,location,content,0,photo);
-		
-		
-		System.out.println(pop);
-		
+		int status_code=-1;
+		int status_rootcode=-1;
+		String[] status = {"사진을 등록하였습니다.","네트워크를 확인해주세요.","네트워크를 확인해주세요."};
 		photoUserDAO dao = photoUserDAO.getInstance();
+		int flag=dao.whouser((String)session.getAttribute("root_id"));
 		
-		int status_code = dao.insertphoto(pop,(String)session.getAttribute("user_id"));
+		System.out.println(flag);
+		System.out.println((String)session.getAttribute("root_id"));
+
+		if(flag==1){
+			status_rootcode = dao.insertInfo(pop,(String)session.getAttribute("root_id"));
+			out.println("<script>alert('"+status[status_rootcode]+"');</script>");
+		}
+		else{
+			status_code = dao.insertphoto(pop,(String)session.getAttribute("user_id"));	
+			out.println("<script>alert('"+status[status_code]+"');</script>");
+		}
+			
+		System.out.println(flag);
+
+
 		
-		String[] status = {"네트워크를 확인해주세요."};
-		
-		if(status_code==0){//성공	
-			out.println("사진을 등록하였습니다.");
+
+		if((status_code==0)||(status_rootcode==0)){//성공	
 			        //response.sendRedirect("accountPage.jsp");
-			        out.println("<script>alert('사진을 등록하였습니다.');</script>");
 			out.println("<script> location.href='accountPage.jsp'</script>");
 
 		}else{
-			out.println("<script>alert('"+status[status_code-1]+"');</script>");
 			        //response.sendRedirect("loginPage.jsp");
 			out.println("<script> window.history.back();</script>");
 

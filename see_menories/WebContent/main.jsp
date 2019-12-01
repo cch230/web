@@ -1,4 +1,4 @@
-
+ 
 <%@page import="model.photo"%>
 <%@page import="model.Location"%>
 <%@page import="java.util.List"%>
@@ -60,7 +60,19 @@ body, html {
 
 	</section>
 	<section>
-
+	<div class="content-profile-page">
+			<div class="profile-user-page card">
+				<div class="user-profile-data">
+					<h3>새로운 공지!</h3>
+				</div>	
+					<div class="container">
+					
+								<jsp:include page="listInfoproc.jsp"></jsp:include>
+						</div>
+					</div>
+				
+		</div>
+	
 		<div class="content-profile-page">
 			<div class="profile-user-page card">
 				<div class="user-profile-data">

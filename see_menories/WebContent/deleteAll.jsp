@@ -8,17 +8,44 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<%
-		request.setCharacterEncoding("utf-8");
+	
+<%
+	request.setCharacterEncoding("utf-8");
 
-			String user_id = request.getParameter("user_id");
+	if (session.getAttribute("root_id") != null) {
 
-			photoUserDAO dao = photoUserDAO.getInstance();
+		photoUserDAO dao = photoUserDAO.getInstance();
 
-			dao.deleteAllphoto(user_id);
+		dao.deleteAllphoto();
+		
+%>
+		
+<%
+	} else {
 
-			response.sendRedirect("accountPage.jsp");
-	%>
+				String user_id = request.getParameter("user_id");
+
+				photoUserDAO dao = photoUserDAO.getInstance();
+
+				dao.deleteAllphoto(user_id);
+	}
+%>
+
+<%
+	if (session.getAttribute("root_id") != null) {
+%>
+		<jsp:forward page="Mgframe.jsp">
+			<jsp:param name="CONTENTPAGE" value="acManagerProc.jsp" />
+		</jsp:forward>
+<%
+	} else {
+%>
+		<jsp:forward page="Mgframe.jsp">
+			<jsp:param name="CONTENTPAGE" value="accountPage.jsp" />
+		</jsp:forward>
+<%
+	}
+%>
 
 </body>
 </html>

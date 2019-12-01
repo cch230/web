@@ -14,6 +14,7 @@ import model.Comment;
 import model.user;
 import model.Location;
 import model.photo;
+import model.info;
 import model.Root;
 public class photoUserDAO {
 
@@ -55,6 +56,54 @@ public class photoUserDAO {
 
 	}
 
+	
+	//유저 과니자 판별
+	public int whouser(String user_id) {
+
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		int flag=0;
+		
+		try {
+			System.out.println(user_id);
+			pstmt = connection.prepareStatement("select id from root where id= ? ");
+
+			pstmt.setString(1, user_id);
+
+			rs=pstmt.executeQuery();
+
+			if (rs.next()) {
+
+				if(rs.getString(1)!=null)
+					flag=1;
+			}
+		} catch (SQLException e) {
+			flag=0;
+			e.printStackTrace();
+
+		} finally {
+
+			if (pstmt != null) {
+				try {
+					pstmt.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+			if (rs != null) {
+				try {
+					rs.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		return flag;
+	}
+
+	
+	
+	
 	// 게시글 추가 함수
 	// 0-> 성공 1->실패
 	public int insertphoto(photo photo, String user_id) {
@@ -124,6 +173,77 @@ public class photoUserDAO {
 
 	}
 
+	// 공지 추가 함수
+		// 0-> 성공 1->실패
+		public int insertInfo(photo photo, String user_id) {
+
+			PreparedStatement pstmt = null;
+			PreparedStatement pstmt2 = null;
+			ResultSet rs = null;
+
+			int return_code = -1;
+
+			try {
+
+				pstmt = connection
+						.prepareStatement("insert into info(user_id,title,tag,location,content) values(?,?,?,?,?)");
+
+				pstmt.setString(1, user_id);
+				pstmt.setString(2, photo.getTitle());
+				pstmt.setString(3, photo.getTag());
+				pstmt.setString(4, photo.getLocation());
+				pstmt.setString(5, photo.getContent());
+
+				pstmt.executeUpdate();
+
+				pstmt2 = connection.prepareStatement("SELECT LAST_INSERT_ID();");
+				rs = pstmt2.executeQuery();
+
+				String[] pop = photo.getPhoto();
+
+				if (rs.next()) {
+
+					int id = rs.getInt("LAST_INSERT_ID()");
+					for (int i = 0; i < 3; i++) {
+						// System.out.println(id);
+						// System.out.println(photo[i]);
+
+						if (pop[i].equals(""))
+							continue;
+						insertinfoinfo(pop[i], id);
+					}
+
+				}
+
+				return_code = 0;
+
+			} catch (SQLException e) {
+
+				System.out.println("게시글 추가에 실패했습니다.");
+				e.printStackTrace();
+				return_code = 1;
+
+			} finally {
+
+				if (pstmt != null)
+					try {
+						pstmt.close();
+					} catch (SQLException e) {
+						e.printStackTrace();
+					}
+				if (pstmt2 != null)
+					try {
+						pstmt2.close();
+					} catch (SQLException e) {
+						e.printStackTrace();
+					}
+			}
+			return return_code;
+
+		}
+	
+	
+	
 	public int insertphotoPhoto(String photo, int id) {
 
 		PreparedStatement pstmt = null;
@@ -158,6 +278,42 @@ public class photoUserDAO {
 		return return_code;
 
 	}
+	
+	public int insertinfoinfo (String photo, int id) {
+
+		PreparedStatement pstmt = null;
+
+		int return_code = -1;
+
+		try {
+			pstmt = connection.prepareStatement("insert into info_detail values(?,?)");
+
+			pstmt.setInt(1, id);
+			pstmt.setString(2, photo);
+
+			pstmt.executeUpdate();
+
+			return_code = 0;
+
+		} catch (SQLException e) {
+
+			System.out.println("사진 추가에 실패했습니다.");
+			e.printStackTrace();
+			return_code = 1;
+
+		} finally {
+
+			if (pstmt != null)
+				try {
+					pstmt.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+		}
+		return return_code;
+
+	}
+
 
 	public void deletephotoPhoto(int id) {
 		PreparedStatement pstmt = null;
@@ -274,6 +430,39 @@ public class photoUserDAO {
 
 	}
 
+	public void deleteAllphoto() {
+
+		PreparedStatement pstmt = null;
+
+		try {
+
+			pstmt = connection.prepareStatement("delete from photo");
+
+
+			pstmt.executeUpdate();
+
+		} catch (SQLException e) {
+
+			System.out.println("전체 게시글 삭제에 실패했습니다.");
+			e.printStackTrace();
+
+		} finally {
+
+			if (pstmt != null)
+				try {
+					pstmt.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+		}
+
+	}
+
+	
+	
+	
+	
+	
 	// 게시글 지정 삭제
 	public void deletephoto(int photo_id) {
 
@@ -384,6 +573,198 @@ public class photoUserDAO {
 		return photo;
 
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	// 모든 공지  조회
+		public List<info> selectAllinfo() {
+
+			PreparedStatement pstmt = null;
+			PreparedStatement pstmt2 = null;
+			PreparedStatement pstmt3 = null;
+
+			ResultSet rs = null;
+			ResultSet rs2 = null;
+			ResultSet rs3 = null;
+
+			List<info> list = new ArrayList<info>();
+
+			try {
+
+				pstmt = connection.prepareStatement("select * from info order by reg_date desc ");
+
+				rs = pstmt.executeQuery();
+
+				while (rs.next()) {
+
+					pstmt2 = connection.prepareStatement("select * from info where id = ?");
+					pstmt2.setString(1, rs.getString("user_id"));
+					rs2 = pstmt2.executeQuery();
+
+					if (rs2.next()) {
+
+						info info = new info();
+
+						info.setId(rs.getInt("id"));
+						info.setuser_id(rs.getString("user_id"));
+						info.setuser_name(rs2.getString("name"));
+						info.setTitle(rs.getString("title"));
+						info.setTag(rs.getString("tag"));
+						info.setLocation(rs.getString("location"));
+						info.setContent(rs.getString("content"));
+						info.setLike_num(rs.getInt("like_num"));
+						info.setReg_Date(rs.getString("reg_date"));
+						info.setComment_num(getphotoComment(rs.getInt("id")));
+
+						pstmt3 = connection.prepareStatement("select * from info_detail where id = ?");
+						pstmt3.setInt(1, rs.getInt("id"));
+						rs3 = pstmt3.executeQuery();
+
+						String[] pop = new String[3];
+						int i = 0;
+						while (rs3.next()) {
+							pop[i] = rs3.getString("info");
+							i++;
+						}
+						info.setinfo(pop);
+
+						list.add(info);
+
+					}
+
+				}
+
+			} catch (SQLException e) {
+
+				System.out.println("모든 게시글 조회에 실패했습니다.");
+				e.printStackTrace();
+
+			} finally {
+
+				if (pstmt != null)
+					try {
+						pstmt.close();
+					} catch (SQLException e) {
+						e.printStackTrace();
+					}
+				if (pstmt2 != null)
+					try {
+						pstmt2.close();
+					} catch (SQLException e) {
+						e.printStackTrace();
+					}
+
+			}
+
+			return list;
+
+		}
+
+		
+		
+		
+		
+		// 유저의 게시물 조회
+		public List<info> selectAllinfo(String user_id) {
+
+			PreparedStatement pstmt = null;
+			PreparedStatement pstmt2 = null;
+			PreparedStatement pstmt3 = null;
+
+			ResultSet rs = null;
+			ResultSet rs2 = null;
+			ResultSet rs3 = null;
+
+			List<info> list = new ArrayList<info>();
+
+			try {
+
+				pstmt = connection.prepareStatement("select * from info where user_id = ? order by reg_date desc");
+				pstmt.setString(1, user_id);
+
+				rs = pstmt.executeQuery();
+
+				while (rs.next()) {
+
+					pstmt2 = connection.prepareStatement("select * from info where id = ?");
+					pstmt2.setString(1, rs.getString("user_id"));
+					rs2 = pstmt2.executeQuery();
+
+					if (rs2.next()) {
+
+						info info = new info();
+
+						info.setId(rs.getInt("id"));
+						info.setuser_id(rs.getString("user_id"));
+						info.setuser_name(rs2.getString("name"));
+						info.setTitle(rs.getString("title"));
+						info.setTag(rs.getString("tag"));
+						info.setLocation(rs.getString("location"));
+						info.setContent(rs.getString("content"));
+						info.setLike_num(rs.getInt("like_num"));
+						info.setReg_Date(rs.getString("reg_date"));
+						info.setComment_num(getphotoComment(rs.getInt("id")));
+
+						pstmt3 = connection.prepareStatement("select * from info_detail where id = ?");
+						pstmt3.setInt(1, rs.getInt("id"));
+						rs3 = pstmt3.executeQuery();
+
+						String[] pop = new String[3];
+						int i = 0;
+						while (rs3.next()) {
+							pop[i] = rs3.getString("info");
+							i++;
+						}
+						info.setinfo(pop);
+
+						list.add(info);
+
+					}
+
+				}
+
+			} catch (SQLException e) {
+
+				System.out.println("모든 게시글 조회에 실패했습니다.");
+				e.printStackTrace();
+
+			} finally {
+
+				if (pstmt != null)
+					try {
+						pstmt.close();
+					} catch (SQLException e) {
+						e.printStackTrace();
+					}
+				if (pstmt2 != null)
+					try {
+						pstmt2.close();
+					} catch (SQLException e) {
+						e.printStackTrace();
+					}
+
+			}
+
+			return list;
+
+		}
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 	// 모든 게시물 조회
 	public List<photo> selectAllphoto() {
@@ -469,6 +850,10 @@ public class photoUserDAO {
 
 	}
 
+	
+	
+	
+	
 	// 유저의 게시물 조회
 	public List<photo> selectAllphoto(String user_id) {
 
