@@ -33,7 +33,6 @@
 
 			String user_id = request.getParameter("user_id");
 
-			photoUserDAO dao = photoUserDAO.getInstance();
 
 			dao.deleteuser(user_id);
 

@@ -492,6 +492,38 @@ public class photoUserDAO {
 		}
 
 	}
+	
+	
+	// 게시글 지정 삭제
+		public void deletecomment(int id) {
+
+			PreparedStatement pstmt = null;
+
+			try {
+
+				pstmt = connection.prepareStatement("delete from comment where id = ?");
+
+				pstmt.setInt(1, id);
+
+				pstmt.executeUpdate();
+
+			} catch (SQLException e) {
+
+				System.out.println("게시글 삭제에 실패했습니다.");
+				e.printStackTrace();
+
+			} finally {
+
+				if (pstmt != null)
+					try {
+						pstmt.close();
+					} catch (SQLException e) {
+						e.printStackTrace();
+					}
+			}
+
+		}
+	
 
 	// 지정한 id값을 가진 게시글 조회
 	public photo selectOnephoto(int photo_id) {

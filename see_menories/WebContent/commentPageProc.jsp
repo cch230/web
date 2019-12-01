@@ -15,11 +15,19 @@
 
 </head>
 <body>
-
 	<%
+		String user_id = null;
+
+		if (session.getAttribute("root_id") != null) {
+			 user_id = (String) session.getAttribute("root_id");
+		}
+		else {
+			user_id = (String) session.getAttribute("user_id");
+
+		}
+		
 		request.setCharacterEncoding("utf-8");
 
-		String user_id = (String) session.getAttribute("user_id");
 		boolean isLogin = false;
 		boolean like = false;
 		if (user_id != null)
@@ -85,13 +93,35 @@
 									else
 										out.println("♡");
 							%>
-						</a> &nbsp;<%=photo.getLike_num()%></p>
+						</a> &nbsp;<%=photo.getLike_num()%>
+													</p>
+						
+						<%
+
+						if (session.getAttribute("root_id") != null) {
+							 user_id = (String) session.getAttribute("root_id");
+							 
+						%>
+						
+						<%
+						}
+						else {
+							user_id = (String) session.getAttribute("user_id");
+						%>
+						
 				<form action="writeComment.jsp">
 						<input type="hidden" name="photo_id" value=<%=photo.getId()%>>
 						<input type="text" placeholder="댓글을 입력하세요." name="comment"
 							id="comment-input" required="required">&nbsp;&nbsp;&nbsp;<input
 							type="submit" value="작성" id="write"></input>
 					</form>
+						
+						<% 
+						}
+						%>
+						
+						
+					
 					<%
 						List<Comment> list = dao.selectAllComment(photo.getId());
 							if (list.isEmpty()) {
@@ -100,13 +130,28 @@
 								for (Comment comment : list) {
 					%>
 					<div class="comment">
-						<%
-							if (isLogin && (user_id.equals(comment.getuser_id()) || user_id.equals(photo.getuser_id()))) {
+					
+					<% 
+						
+						if (session.getAttribute("root_id") != null) {
+							
 						%>
+							<a
+							href="deleteComment.jsp?pop_id=<%=photo.getId()%>&id=<%=comment.getId()%>"><span
+							style="float: right;">&times;</span></a>
+						
+						<%	
+							 }else{
+									if (isLogin && (user_id.equals(comment.getuser_id()) || user_id.equals(photo.getuser_id()))) {
+
+						%>
+					
+						
 						<a
 							href="deleteComment.jsp?pop_id=<%=photo.getId()%>&id=<%=comment.getId()%>"><span
 							style="float: right;">&times;</span></a>
 						<%
+									}
 							}
 						%>
 						<h5><%=comment.getuser_name()%></h5>
