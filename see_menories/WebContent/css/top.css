@@ -1,0 +1,36 @@
+body, html {
+	padding: 0px;
+	margin: 0px;
+}
+
+.navbar {
+	overflow: hidden;
+	background-color: #333;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index:4;
+}
+
+.navbar a {
+	float: left;
+	display: block;
+	color: #f2f2f2;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+	font-size: 17px;
+}
+
+.navbar a:hover {
+	background: #ddd;
+	color: black;
+}
+
+.leff {
+	float: left;
+}
+
+.right {
+	float: right;
+}

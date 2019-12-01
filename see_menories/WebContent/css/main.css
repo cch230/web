@@ -1,0 +1,66 @@
+body, html {
+	padding: 0px;
+	margin: 0px;
+	height: 100%;
+	/*  */ /* background-color:rgb(0,0,30); */
+}
+
+#logo a {
+	font-family: 'Bangers', cursive;
+	text-decoration: none;
+	font-size: 3.5em;
+	color: white;
+	
+}
+#logo p{
+	font-family: 'Bangers', cursive;
+	margin-top:-0.5em;
+	font-size: 2em;
+	color: #c0c0c0;
+}
+#logo{
+	padding-top:15%;
+	text-shadow:1px 1px 2px #808080;
+	
+}
+#search-section {
+	box-sizing: border-box;
+	background-image: url(../image/travel7.jpg);
+	height: 1000px;
+	width: 100%;
+}
+
+form.search input[type=text] {
+	color:white;
+	border-radius: 2em 0em 0em 2em;
+	height: 3em;
+	padding: 10px;
+	font-size: 17px;
+	border: 2px solid white;
+	float: left;
+	width: 80%;
+	background: rgba(241, 241, 241, 0.5);
+}
+
+form.search button {
+	border-radius: 0em 2em 2em 0em;
+	height: 3em;
+	border: 2px solid white;
+	float: left;
+	width: 18%;
+	background: #c0c0c0;
+	color: white;
+	font-size: 17px;
+	border-left: none;
+	cursor: pointer;
+}
+
+form.search button:hover {
+	background: #808080;
+}
+
+form.search::after {
+	content: "";
+	clear: both;
+	display: table;
+}

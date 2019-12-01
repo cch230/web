@@ -1,0 +1,15 @@
+@charset "UTF-8";
+
+#comment-input{
+	width:90%;
+	
+}
+.comment {
+	width: 100%;
+	border-radius: 2px;
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+	border: .1em solid rgba(0, 0, 0, 0.1);
+	margin: 0.5em auto;
+	text-align: left;
+	padding: 0.5em;
+}
