@@ -42,14 +42,14 @@
 										for (photo photo : list) {
 					%>
 
-						<div class="photo" align ="center"
+						<div class="photo" 
                 		style=" background-color: white ;float:left; ; width: 31%;">
 						<%
 							if (isLogin && user_id.equals(photo.getuser_id())) {
 						%>
 						<p class="extra">
-							<a href="modifyPopPage.jsp?id=<%=photo.getId()%>">수정하기</a><a
-								href="deletePop.jsp?id=<%=photo.getId()%>">&times;</a>
+							<a href="modifyPhotoPage.jsp?id=<%=photo.getId()%>">수정하기</a><a
+								href="deletePhoto.jsp?id=<%=photo.getId()%>">&times;</a>
 						</p>
 						<%
 							}

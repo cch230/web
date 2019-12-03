@@ -35,7 +35,7 @@ body, html {
 </head>
 <body>
 	<jsp:include page="top.jsp" flush="false" />
-
+r
 	<%
 		photoUserDAO dao = photoUserDAO.getInstance();
 	%>

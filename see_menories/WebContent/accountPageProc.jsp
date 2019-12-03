@@ -84,6 +84,7 @@
          </div>
        
       </div>
+      
             <section>
                <%
                   List<photo> list = dao.selectAllphoto(user_id);
@@ -94,9 +95,9 @@
                                  for (photo photo : list) {
                                     like = dao.isLike(photo.getId(), user_id);
                %>
-
+			
             <div class="photo"align ="center"
-                style="border: 1px; background-color: white ; float:left ; width: 31%;">                  <p class="extra">
+                style="border: 1px; background-color: white ; float:left ; width: 31%;">                  
                      <a href="modifyPhotoPage.jsp?id=<%=photo.getId()%>">수정하기</a><a
                         href="deletePhoto.jsp?id=<%=photo.getId()%>">&times;</a>
                   </p>
@@ -111,6 +112,7 @@
                      <%=photo.getReg_Date()%></p>
                   <h5>
                      <%=photo.getContent()%></h5>
+			<div class="container">
 
                   <%
                      String[] Photo = photo.getPhoto();
@@ -136,6 +138,8 @@
 
 
                </div>
+                              </div>
+               
                <%
                   }
                      }

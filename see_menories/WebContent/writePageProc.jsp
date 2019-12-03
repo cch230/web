@@ -13,7 +13,7 @@
 	%>
 	<div class="body"style="overflow:scroll; height:100vh">
 		<div class="panel-lite"  >
-			<form action="write.jsp" method="get">
+			<form action="write.jsp" method="z">
 
 			<h4>Photo</h4>
 

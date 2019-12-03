@@ -30,7 +30,7 @@
 		
 
 		tag = tag.equals("see") ? "볼거리" : "먹거리";
-		photo pop = new photo(title,tag,location,content,0,photo);
+		photo	 pop = new photo(title,tag,location,content,0,photo);
 		int status_code=-1;
 		int status_rootcode=-1;
 		String[] status = {"사진을 등록하였습니다.","네트워크를 확인해주세요.","네트워크를 확인해주세요."};

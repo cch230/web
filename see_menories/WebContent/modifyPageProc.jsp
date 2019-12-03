@@ -21,6 +21,7 @@
 
 			user user = dao.selectOneuser(user_id);
 	%>
+	<div class="body"style="overflow:scroll; height:100vh">
 
 	<div class="panel-lite">
 		<form action="modify.jsp" method="get">
@@ -68,6 +69,8 @@
 			</button>
 
 		</form>
+		</div>
+	
 	</div>
 </body>
 </html>
