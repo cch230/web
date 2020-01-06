@@ -13,6 +13,8 @@ import java.util.List;
 import model.Comment;
 import model.user;
 import model.Location;
+import model.Login;
+import model.NaverResponse;
 import model.photo;
 import model.info;
 import model.Root;
@@ -1196,6 +1198,55 @@ public class photoUserDAO {
 		return user;
 
 	}
+	//SNS회원조회
+	public String select (String id) throws ClassNotFoundException, SQLException {
+		String ret = null;
+		
+		String sql = "SELECT idx FROM SNS_INFO WHERE idx = ?";
+
+		PreparedStatement pstmt = null;
+
+		pstmt = connection.prepareStatement(sql);
+
+		pstmt.setString(1, id);
+		
+		ResultSet rs = pstmt.executeQuery();
+
+		while (rs.next()) {
+			ret = rs.getString("idx");
+		}
+		rs.close();
+
+		if (pstmt != null)
+			pstmt.close();
+		
+		return ret;
+	}
+	
+	public int insert(Login l) throws ClassNotFoundException, SQLException {
+		int ret = 0;
+		// SNS_INFO에 값 업데이트
+		String sql = "INSERT INTO SNS_INFO(idx, email, age, nickname, profile_image, birthday) VALUES (?, ?, ?, ?, ?, ?)";
+	
+		PreparedStatement pstmt = null;
+			pstmt = connection.prepareStatement(sql);
+			
+			NaverResponse naver = l.getNaver();
+			
+			pstmt.setString(1, naver.getId());
+			pstmt.setString(2, naver.getEmail());
+			pstmt.setString(3, naver.getAge());
+			pstmt.setString(4, naver.getNickname());
+			pstmt.setString(5, naver.getProfile_image());
+			pstmt.setString(6, naver.getBirthday());
+			
+			ret = pstmt.executeUpdate();
+			
+			if (pstmt != null)
+				pstmt.close();
+			
+		return ret;
+	}
 
 	// 검색 기능 (키워드가 들어간 유저와 게시글 )
 	public List<photo> searchphoto(String keyword) {
@@ -1621,6 +1672,12 @@ public class photoUserDAO {
 	}
 	// --게시글 좋아요
 
+	
+	
+	
+	
+	
+	
 	// 로그인
 	// 0->성공 1->비밀번호 틀림 2->없음 3->실패
 	public int checkuser(user user) {
