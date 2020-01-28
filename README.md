@@ -54,7 +54,7 @@ MySQL Workbench |6.3.10|
 * [sql 조건절](https://webcoding.tistory.com/entry/SQL-WHERE-%EC%A0%88-%EC%82%AC%EC%9A%A9%EA%B3%BC-%EC%A1%B0%EA%B1%B4%EC%97%90-%EC%82%AC%EC%9A%A9%ED%95%A0-%EC%88%98-%EC%9E%88%EB%8A%94-%EC%97%B0%EC%82%B0%EC%9E%90)
 * [css 선택자](https://bssow.tistory.com/202)
 * [회원가입 시 정규표현](https://wildpup.cafe24.com/archives/696)
-*[아마존 EC2 인스턴스 생성 방법](아마존 EC2 인스턴스 생성 방법)
+* [아마존 EC2 인스턴스 생성 방법](https://wildpup.cafe24.com/archives/696)
 * [Star uml 설치법](https://library1008.tistory.com/3)
 * [CSS, HTML 코드 예제문 사이트](https://ofcourse.kr)
 * > 홈페이지를 위한 HTML JAVA SCRIPT - 김인욱 저, 가메출판사, 2002
