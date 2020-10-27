@@ -1,15 +1,15 @@
-# º½.See memories_»çÁø °øÀ¯ Ä¿¹Â´ÏÆ¼ À¥ ¼­ºñ½º
+# ë´„.See memories_ì‚¬ì§„ ê³µìœ  ì»¤ë®¤ë‹ˆí‹° ì›¹ ì„œë¹„ìŠ¤
 ## Photo Sharing Community Web Service
-»çÁøÀ» ÀÍ¸íÀ¸·Î  ¿Ã¸± ¼ö ÀÖ´Â ÀÚÀ¯·Î¿î Ä¿¹Â´ÏÆ¼ À¥ ¼­ºñ½ºÀÔ´Ï´Ù.
+ì‚¬ì§„ì„ ìµëª…ìœ¼ë¡œ  ì˜¬ë¦´ ìˆ˜ ìžˆëŠ” ìžìœ ë¡œìš´ ì»¤ë®¤ë‹ˆí‹° ì›¹ ì„œë¹„ìŠ¤ìž…ë‹ˆë‹¤.
 
 It is a Free community web service for posting your photos anonymously.
 
-### ÀÌÂù¼Ö ÀÌÁ¾¿ø ÀÌ±³¹ü ÃÖÃ¶È¯
+### ì´ì°¬ì†” ì´ì¢…ì› ì´êµë²” ìµœì² í™˜
 ## Representative email : cch01024857239@gmail.com
-## ÆÀ ÇÁ·ÎÁ§Æ®·Î ÁøÇàÇÏ¿´´ø À¥ ¼­ºñ½º ±¸ÇöÀÔ´Ï´Ù.
+## íŒ€ í”„ë¡œì íŠ¸ë¡œ ì§„í–‰í•˜ì˜€ë˜ ì›¹ ì„œë¹„ìŠ¤ êµ¬í˜„ìž…ë‹ˆë‹¤.
 ## This is a web service implementation carried out as a team project.
-# °³¹ßÈ¯°æ (Development environment)
-È¯°æ|¹öÀü
+# ê°œë°œí™˜ê²½ (Development environment)
+í™˜ê²½|ë²„ì „
 ---|---|
 Eclipse IDE for EE Developers|19-09|
 Ubuntu Server|18.0.4|
@@ -18,14 +18,14 @@ Tomcat|9.0.22|
 MYSQL|5.1.48|
 AWS-EC2| |
 MySQL Workbench |6.3.10|
-
-## 1. ÀÛÇ°¼±Á¤ ¹è°æ ¹× ÇÊ¿ä¼º
+ 
+## 1. ìž‘í’ˆì„ ì • ë°°ê²½ ë° í•„ìš”ì„±
 ![calendar](./image/p1.JPG)
 
-## 2. °³¹ß ¹× ¿î¿µÈ¯°æ
+## 2. ê°œë°œ ë° ìš´ì˜í™˜ê²½
 ![calendar](./image/p2.JPG)
 
-## 3. µ¿ÀÛ ½Ã³ª¸®¿À UML
+## 3. ë™ìž‘ ì‹œë‚˜ë¦¬ì˜¤ UML
 ![calendar](./image/p3.JPG)
 ![calendar](./image/p4.JPG)
 ![calendar](./image/p5.JPG)
@@ -35,29 +35,29 @@ MySQL Workbench |6.3.10|
 ![calendar](./image/p9.JPG)
 ![calendar](./image/p10.JPG)
 
-## 4. ÀÏÁ¤°ú ½ÇÀû
+## 4. ì¼ì •ê³¼ ì‹¤ì 
 ![calendar](./image/p11.JPG)
 ![calendar](./image/p12.JPG)
 
-## 5. ¿ªÇÒ ºÐÀå 
+## 5. ì—­í•  ë¶„ìž¥ 
  ![calendar](./image/p13.JPG)
 
-## 6. ¹®Á¦Á¡°ú ÇØ°á¹æ¾È
+## 6. ë¬¸ì œì ê³¼ í•´ê²°ë°©ì•ˆ
 ![calendar](./image/p14.JPG)
 
-# Âü°í ¹®Çå
-*  [jsp À¯Åõºê °­ÀÇ](https://www.youtube.com/watch?v=55sPXGAo-xY)
-*  [±âº»Å°,¿Ü·¡Å° Á¦¾àÁ¶°Ç](https://docs.microsoft.com/ko-kr/sql/relational-databases/tables/primary-and-foreign-key-constraints?view=sql-server-ver15)
-* [¼­¹ö ¿¬µ¿ ¹®Á¦ ÇØ°á](http://okjsp.pe.kr:8080/article/487885?note=1483650)
-* [jsp À¯Åõºê °­ÀÇ](https://www.youtube.com/watch?v=55sPXGAo-xY)
-* [¼­¹ö¿¡¼­ÀÇ ÄÄÆÄÀÏ¿¡·¯ ¿À·ù](https://mkil.tistory.com/392)
-* [sql Á¶°ÇÀý](https://webcoding.tistory.com/entry/SQL-WHERE-%EC%A0%88-%EC%82%AC%EC%9A%A9%EA%B3%BC-%EC%A1%B0%EA%B1%B4%EC%97%90-%EC%82%AC%EC%9A%A9%ED%95%A0-%EC%88%98-%EC%9E%88%EB%8A%94-%EC%97%B0%EC%82%B0%EC%9E%90)
-* [css ¼±ÅÃÀÚ](https://bssow.tistory.com/202)
-* [È¸¿ø°¡ÀÔ ½Ã Á¤±ÔÇ¥Çö](https://wildpup.cafe24.com/archives/696)
-* [¾Æ¸¶Á¸ EC2 ÀÎ½ºÅÏ½º »ý¼º ¹æ¹ý](https://wildpup.cafe24.com/archives/696)
-* [Star uml ¼³Ä¡¹ý](https://library1008.tistory.com/3)
-* [CSS, HTML ÄÚµå ¿¹Á¦¹® »çÀÌÆ®](https://ofcourse.kr)
-* > È¨ÆäÀÌÁö¸¦ À§ÇÑ HTML JAVA SCRIPT - ±èÀÎ¿í Àú, °¡¸ÞÃâÆÇ»ç, 2002
+# ì°¸ê³  ë¬¸í—Œ
+*  [jsp ìœ íˆ¬ë¸Œ ê°•ì˜](https://www.youtube.com/watch?v=55sPXGAo-xY)
+*  [ê¸°ë³¸í‚¤,ì™¸ëž˜í‚¤ ì œì•½ì¡°ê±´](https://docs.microsoft.com/ko-kr/sql/relational-databases/tables/primary-and-foreign-key-constraints?view=sql-server-ver15)
+* [ì„œë²„ ì—°ë™ ë¬¸ì œ í•´ê²°](http://okjsp.pe.kr:8080/article/487885?note=1483650)
+* [jsp ìœ íˆ¬ë¸Œ ê°•ì˜](https://www.youtube.com/watch?v=55sPXGAo-xY)
+* [ì„œë²„ì—ì„œì˜ ì»´íŒŒì¼ì—ëŸ¬ ì˜¤ë¥˜](https://mkil.tistory.com/392)
+* [sql ì¡°ê±´ì ˆ](https://webcoding.tistory.com/entry/SQL-WHERE-%EC%A0%88-%EC%82%AC%EC%9A%A9%EA%B3%BC-%EC%A1%B0%EA%B1%B4%EC%97%90-%EC%82%AC%EC%9A%A9%ED%95%A0-%EC%88%98-%EC%9E%88%EB%8A%94-%EC%97%B0%EC%82%B0%EC%9E%90)
+* [css ì„ íƒìž](https://bssow.tistory.com/202)
+* [íšŒì›ê°€ìž… ì‹œ ì •ê·œí‘œí˜„](https://wildpup.cafe24.com/archives/696)
+* [ì•„ë§ˆì¡´ EC2 ì¸ìŠ¤í„´ìŠ¤ ìƒì„± ë°©ë²•](https://wildpup.cafe24.com/archives/696)
+* [Star uml ì„¤ì¹˜ë²•](https://library1008.tistory.com/3)
+* [CSS, HTML ì½”ë“œ ì˜ˆì œë¬¸ ì‚¬ì´íŠ¸](https://ofcourse.kr)
+* > í™ˆíŽ˜ì´ì§€ë¥¼ ìœ„í•œ HTML JAVA SCRIPT - ê¹€ì¸ìš± ì €, ê°€ë©”ì¶œíŒì‚¬, 2002
 
  
 
