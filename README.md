@@ -2,7 +2,7 @@
 ## Photo Sharing Community Web Service
 사진을 익명으로  올릴 수 있는 자유로운 커뮤니티 웹 서비스입니다.  
 It is a Free community web service for posting your photos anonymously.  <br/><br/>
-<img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https://github.com/cch230/web" style="display: block; object-fit: cover; border-radius: 1px; width: 100px; pointer-events: auto;">
+<img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https://github.com/cch230/web&amp;&amp;count_bg=%23383333&amp;title_bg=%23555555&amp;icon=&amp;icon_color=%23E7E7E7" style="display: block; object-fit: cover; border-radius: 1px; width: 100px; pointer-events: auto;">
 ### 이찬솔 이종원 이교범 최철환
 ## Representative email : cch01024857239@gmail.com
 ## 팀 프로젝트로 진행하였던 웹 서비스 구현입니다.
